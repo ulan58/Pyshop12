@@ -131,3 +131,4 @@ dmypy.json
 .idea/
 media/
 .DS_Store/
+DS_Store/
