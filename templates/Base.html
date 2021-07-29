@@ -22,12 +22,15 @@
       <a href="{% url 'logout' %}">Logout</a>
       {% endif %}
 <!--  end isauthenticated    -->
-
+    {% if request.user.is_authenticated and request.user.is_superuser %}
 <a  href="{% url 'create-product' %}"><img style="width:15px; height:auto;" src="{% static 'img/plus.png' %}"></a>
-    <form class="d-flex">
-      <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+      {% endif %}
+<!--   SEARCH   -->
+    <form class="d-flex" method="get" action="{% url 'search'  %}">
+      <input name="q" class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
       <button class="btn btn-outline-success" type="submit">Search</button>
     </form>
+<!--   end SEARCH   -->
   </div>
 </nav>
 <!--  navbar end -->
