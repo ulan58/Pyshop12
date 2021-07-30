@@ -23,8 +23,15 @@
       {% endif %}
 <!--  end isauthenticated    -->
     {% if request.user.is_authenticated and request.user.is_superuser %}
-<a  href="{% url 'create-product' %}"><img style="width:15px; height:auto;" src="{% static 'img/plus.png' %}"></a>
+<a  href="{% url 'create-product' %}">
+    <img style="width:15px; height:auto;" src="{% static 'img/plus.png' %}">
+</a>
       {% endif %}
+
+      <a href="{% url 'cart_detail' %}">
+          <img  style="width:25px; height:auto;" src="{% static 'img/carts.png'%}">
+      </a>
+
 <!--   SEARCH   -->
     <form class="d-flex" method="get" action="{% url 'search'  %}">
       <input name="q" class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
